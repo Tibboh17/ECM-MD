@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ecm-hanwha"
+version = "0.1.0"
+description = "ECM Hanwha project"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Your Name", email = "you@example.com" }
+]
+dependencies = [
+    # requirements.txt의 의존성은 자동 설치되지 않으므로
+    # 여기에 주요 핵심 패키지 몇 개를 넣거나,
+    # requirements.txt를 함께 사용하는 걸 권장합니다.
+    "numpy",
+    "pandas",
+    "torch",
+    "scikit-learn",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]  # 패키지 루트 디렉토리
+include = ["*"]  # src 내 모든 패키지 포함
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.uv]
+# uv sync 시 requirements.txt를 자동 포함하도록 지정
+requirements = ["requirements.txt"]

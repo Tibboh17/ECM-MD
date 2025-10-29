@@ -1,0 +1,50 @@
+{
+  "hog": {
+    "svc": {
+      "C": 0.1,
+      "gamma": 0.001,
+      "kernel": "sigmoid"
+    },
+    "random_forest": {
+      "n_estimators": 100,
+      "max_depth": 10,
+      "min_samples_split": 8
+    }
+  },
+  "lbp": {
+    "svc": {
+      "C": 10,
+      "gamma": 0.1,
+      "kernel": "linear"
+    },
+    "random_forest": {
+      "n_estimators": 200,
+      "max_depth": 10,
+      "min_samples_split": 8
+    }
+  },
+  "gabor": {
+    "svc": {
+      "C": 0.1,
+      "gamma": 1,
+      "kernel": "linear"
+    },
+    "random_forest": {
+      "n_estimators": 200,
+      "max_depth": null,
+      "min_samples_split": 8
+    }
+  },
+  "sfs": {
+    "svc": {
+      "C": 1,
+      "gamma": 0.01,
+      "kernel": "rbf"
+    },
+    "random_forest": {
+      "n_estimators": 300,
+      "max_depth": 10,
+      "min_samples_split": 8
+    }
+  }
+}
