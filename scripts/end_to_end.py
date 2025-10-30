@@ -15,29 +15,33 @@ All log messages are in English by request.
 """
 
 import sys
+from pathlib import Path
 import csv
 import json
 import time
 import logging
-from pathlib import Path
 
-# ───────── project import path ─────────
-ROOT = Path(__file__).resolve().parents[0]
+# ───────── path setup ─────────
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
 
 # ───────── process modules ─────────
-from src.process.terrain import generate_terrain_for_dir
-from src.process.cropping import crop_from_xml
-from src.process.labeling import build_label_sets
-from src.process.splitting import split_dataset, split_dataset_by_size
-from src.process.augmentation import augment_from_split_csv, AugConfig
+from process.terrain import generate_terrain_for_dir
+from process.cropping import crop_from_xml
+from process.labeling import build_label_sets
+from process.splitting import split_dataset, split_dataset_by_size
+from process.augmentation import augment_from_split_csv, AugConfig
 
 # ───────── features & models ─────────
-from src.features.combined_feature_extractor import CombinedConfig, ComprehensiveFeatureExtractor
-from src.pipeline.models import build_pipeline_for_feature, load_tuned_params_json
-from src.pipeline.reporting import generate_single_run_report, generate_summary_report
-from src.pipeline.data_loader import load_npz_from_split_dir
+from features.combined_feature_extractor import CombinedConfig, ComprehensiveFeatureExtractor
+from pipeline.models import build_pipeline_for_feature, load_tuned_params_json
+from pipeline.reporting import generate_single_run_report, generate_summary_report
+from pipeline.data_loader import load_npz_from_split_dir
 
 # ───────── configuration ─────────
 SET = "original"
